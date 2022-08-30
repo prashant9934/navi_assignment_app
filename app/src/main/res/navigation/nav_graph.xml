@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ClosedPullRequestListFragment">
+
+    <fragment
+        android:id="@+id/ClosedPullRequestListFragment"
+        android:name="com.example.naviassignmentapp.ClosedPullRequestListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_closed_pull_request_list">
+
+        <action
+            android:id="@+id/action_ClosedPullRequestListFragment_to_PullRequestDetailFragment"
+            app:destination="@id/PullRequestDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/PullRequestDetailFragment"
+        android:name="com.example.naviassignmentapp.PullRequestDetailFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_pull_request_detail">
+
+        <action
+            android:id="@+id/action_PullRequestDetailFragment_to_ClosedPullRequestListFragment"
+            app:destination="@id/ClosedPullRequestListFragment" />
+    </fragment>
+</navigation>
