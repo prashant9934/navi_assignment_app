@@ -1,16 +1,21 @@
-package com.example.naviassignmentapp
+package com.example.naviassignmentapp.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.naviassignmentapp.R
 import com.example.naviassignmentapp.databinding.FragmentPullRequestDetailBinding
+import com.example.naviassignmentapp.ui.viewmodel.PullRequestDetailViewModel
 
 class PullRequestDetailFragment : Fragment() {
 
     private var _binding: FragmentPullRequestDetailBinding? = null
+
+    private val viewModel: PullRequestDetailViewModel by viewModels()
 
     private val binding get() = _binding!!
 
@@ -26,10 +31,6 @@ class PullRequestDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
     }
 
     override fun onDestroyView() {

@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/ClosedPullRequestListFragment"
-        android:name="com.example.naviassignmentapp.ClosedPullRequestListFragment"
-        android:label="@string/first_fragment_label"
+        android:name="com.example.naviassignmentapp.ui.view.ClosedPullRequestListFragment"
+        android:label="@string/closed_pull_request_list_fragment_label"
         tools:layout="@layout/fragment_closed_pull_request_list">
 
         <action
@@ -17,8 +17,8 @@
     </fragment>
     <fragment
         android:id="@+id/PullRequestDetailFragment"
-        android:name="com.example.naviassignmentapp.PullRequestDetailFragment"
-        android:label="@string/second_fragment_label"
+        android:name="com.example.naviassignmentapp.ui.view.PullRequestDetailFragment"
+        android:label="@string/pull_request_detail_fragment_label"
         tools:layout="@layout/fragment_pull_request_detail">
 
         <action
