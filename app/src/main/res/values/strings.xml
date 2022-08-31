@@ -2,4 +2,7 @@
     <string name="app_name">NaviAssignmentApp</string>
     <string name="closed_pull_request_list_fragment_label">All Closed Pull Requests</string>
     <string name="pull_request_detail_fragment_label">Pull Request Detail</string>
+    <string name="created_at">Created At -</string>
+    <string name="closed_at">Closed At -</string>
+    <string name="user_image">User Image</string>
 </resources>
