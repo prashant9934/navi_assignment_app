@@ -6,11 +6,13 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naviassignmentapp.databinding.PullRequestItemViewBinding
-import com.example.naviassignmentapp.domain.model.PullRequestModel
 import com.example.naviassignmentapp.extentions.show
+import com.example.naviassignmentapp.ui.viewmodel.PullRequestUiModel
 
 class PullRequestsAdapter :
-    PagingDataAdapter<PullRequestModel, PullRequestsAdapter.ViewHolder>(PullRequestDiffUtilCallBack()) {
+    PagingDataAdapter<PullRequestUiModel, PullRequestsAdapter.ViewHolder>(
+        PullRequestDiffUtilCallBack()
+    ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -29,7 +31,7 @@ class PullRequestsAdapter :
         private val binding: PullRequestItemViewBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: PullRequestModel) {
+        fun bind(item: PullRequestUiModel) {
             binding.title.text = item.title
             binding.closedDate.text = item.closedDate
             binding.createdDate.text = item.createdDate
@@ -39,18 +41,22 @@ class PullRequestsAdapter :
     }
 }
 
-class PullRequestDiffUtilCallBack : DiffUtil.ItemCallback<PullRequestModel>() {
-    override fun areItemsTheSame(oldItem: PullRequestModel, newItem: PullRequestModel): Boolean {
+class PullRequestDiffUtilCallBack : DiffUtil.ItemCallback<PullRequestUiModel>() {
+    override fun areItemsTheSame(
+        oldItem: PullRequestUiModel,
+        newItem: PullRequestUiModel
+    ): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: PullRequestModel, newItem: PullRequestModel): Boolean {
+    override fun areContentsTheSame(
+        oldItem: PullRequestUiModel,
+        newItem: PullRequestUiModel
+    ): Boolean {
         if (oldItem.title != newItem.title) return false
         if (oldItem.closedDate != newItem.closedDate) return false
         if (oldItem.createdDate != newItem.createdDate) return false
         if (oldItem.user.name != newItem.user.name) return false
         return true
     }
-
-
 }

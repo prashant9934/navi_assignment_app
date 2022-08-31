@@ -3,8 +3,6 @@ package com.example.naviassignmentapp.di
 import com.example.naviassignmentapp.data.repository.PullRequestRemoteStore
 import com.example.naviassignmentapp.data.repository.PullRequestService
 import com.example.naviassignmentapp.domain.repository.IPullRequestRepository
-import com.example.naviassignmentapp.domain.usecase.GetClosedPullRequestUseCaseImpl
-import com.example.naviassignmentapp.domain.usecase.IGetPullRequestUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,11 +23,5 @@ class ClosedPullRequestModuleDependencies {
     @ViewModelScoped
     fun providePullRequestRepository(service: PullRequestService): IPullRequestRepository {
         return PullRequestRemoteStore(service)
-    }
-
-    @Provides
-    @ViewModelScoped
-    fun provideGetPullRequestUseCase(repository: IPullRequestRepository): IGetPullRequestUseCase {
-        return GetClosedPullRequestUseCaseImpl(repository)
     }
 }
