@@ -1,6 +1,7 @@
 package com.example.naviassignmentapp.di
 
 import com.example.naviassignmentapp.BuildConfig
+import com.example.naviassignmentapp.data.ConnectivityInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,6 +25,7 @@ class ApplicationModule {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         OkHttpClient.Builder()
+            .addInterceptor(ConnectivityInterceptor())
             .addInterceptor(loggingInterceptor)
             .build()
     } else OkHttpClient

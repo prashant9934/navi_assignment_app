@@ -2,37 +2,32 @@ package com.example.naviassignmentapp.ui.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.naviassignmentapp.databinding.PullRequestItemViewBinding
+import com.example.naviassignmentapp.domain.model.PullRequestModel
 import com.example.naviassignmentapp.extentions.show
-import com.example.naviassignmentapp.ui.viewmodel.model.PullRequestModel
 
-class PullRequestsAdapter(private val onClick: (pullRequest: PullRequestModel) -> Unit) :
-    ListAdapter<PullRequestModel, PullRequestsAdapter.ViewHolder>(PullRequestDiffUtilCallBack()) {
+class PullRequestsAdapter :
+    PagingDataAdapter<PullRequestModel, PullRequestsAdapter.ViewHolder>(PullRequestDiffUtilCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val view =
             PullRequestItemViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(view, onClick)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        getItem(position)?.let {
+            holder.bind(it)
+        }
     }
 
     inner class ViewHolder(
-        private val binding: PullRequestItemViewBinding,
-        private val onClick: (pullRequest: PullRequestModel) -> Unit
+        private val binding: PullRequestItemViewBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-
-        init {
-            binding.root.setOnClickListener {
-                onClick(getItem(adapterPosition))
-            }
-        }
 
         fun bind(item: PullRequestModel) {
             binding.title.text = item.title

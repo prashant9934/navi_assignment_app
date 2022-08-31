@@ -12,17 +12,11 @@
         tools:layout="@layout/fragment_closed_pull_request_list">
 
         <action
-            android:id="@+id/action_ClosedPullRequestListFragment_to_PullRequestDetailFragment"
-            app:destination="@id/PullRequestDetailFragment" />
+            android:id="@+id/action_ClosedPullRequestListFragment_to_ErrorViewFragment"
+            app:destination="@id/ErrorViewFragment" />
     </fragment>
     <fragment
-        android:id="@+id/PullRequestDetailFragment"
-        android:name="com.example.naviassignmentapp.ui.view.PullRequestDetailFragment"
-        android:label="@string/pull_request_detail_fragment_label"
-        tools:layout="@layout/fragment_pull_request_detail">
-
-        <action
-            android:id="@+id/action_PullRequestDetailFragment_to_ClosedPullRequestListFragment"
-            app:destination="@id/ClosedPullRequestListFragment" />
-    </fragment>
+        android:id="@+id/ErrorViewFragment"
+        android:name="com.example.naviassignmentapp.ui.view.ErrorViewFragment"
+        tools:layout="@layout/fragment_error_view"/>
 </navigation>
